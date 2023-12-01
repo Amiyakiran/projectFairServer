@@ -1,4 +1,5 @@
 //Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. 
+//Environment variables provide information about the environment in which the process is running. 
 require('dotenv').config()
 //import express
 const express = require('express')
