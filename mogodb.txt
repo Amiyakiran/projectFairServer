@@ -1,0 +1,41 @@
+mongodb : used to store large amount of data
+---------
+1. difference between SQL and mongodb
+ ------------------------------------
+                SQL                                          mongodb
+
+      - Relational DataBase management system       - Document Oriented NoSQL DataBase
+      - stored in table with rows and Column        - collection of json document.
+      - used Fixed schema(structure of data         - use Dynamic scheme
+        to be stored)
+      - support rich set of data types 
+      - declarative  query languages                - limited set of data types
+      - ACID (Atomicity,consistency , isolation     - NoSql based on CAP(consistency,avaliability 
+        and durability)                               and partition tolerance property)
+      - uses Traditional bussiness application      - used in big data and real time web application
+
+2. mongodb commands
+  -----------------
+  -  show databases - to show all databases in mongobd.
+  -  use DataBasename - to change directory.
+  -  show collections - to view all collections in a particular DataBase.
+  -  db.users.find() - to get all the documents inside a collection.- returns array.
+  -  db.users.find(condition) - returns the array of documents satisfying the condition.
+  -  db.users.findOne({email:"siri@gmail.com",password:"siri123"}) - to get a particular
+  -  db.users.find().limit(2) - to limit the number of counts.
+  -  db.users.find().sort({username:1}) - sort in ascending order
+  -  db.users.find().sort({username:-1}) - sort in descending order.
+  -  db.users.insertOne({username:"neel",email:"neel@gmail.com",password:"neel123",profile:"",github:"",linkedin:""}) - to add data/document.   
+  -  db.users.insertMany([{uname:"sicily",age:25,balance:2000,debt:2600},{uname:"jacob",age:30,balance:50000,debt:12000}]) - to add more number of 
+     data and unstructured.  
+  -  db.users.countDocuments() - returns total number of documents.
+  - db.users.insertOne({uname:"kyle",age:26,address:{city:"washington",zipcode:7896},hobbies:["gamming","driving","coding"]}) - can insert array and object
+   - query based - db.users.find({age:{$gt:25}}) - dollar symbol is neccessary.(gt,gte,lt,lte)
+                 - db.users.find({age:{$lt:25}}) 
+                 - db.users.find({age:{$gt:18,$lt:26}})
+                 - db.users.find({$and:[{age:{$gt:18}},{age:{$lt:26}}]})
+                 - db.users.find({$or:[{uname:'jacob'},{uname:'sicily'}]})
+                 - db.users.find({uname:{$exists:true}})
+                 - db.users.find({$expr:{$gt:["$debt","$balance"]}}) -to compare within the document - use expr
+   
+

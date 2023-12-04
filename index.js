@@ -7,6 +7,9 @@ const express = require('express')
 //import cors
 const cors = require('cors')
 
+//import router
+const router = require('./Routes/router')
+
 //create expressServer -Creates an Express application. The express() function is a top-level function exported by the express module.
 
 const pfServer = express()
@@ -14,6 +17,10 @@ const pfServer = express()
 pfServer.use(cors())
 //parsing json -Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option. - convert into javaScript understanding object
 pfServer.use(express.json())
+
+//use router in server
+pfServer.use(router)
+
 //customize port- bydefault - 3000
 
 const PORT = 4000 || process.env.PORT
@@ -36,4 +43,4 @@ pfServer.post('/',(req,res)=>{
 //put request
 pfServer.put('/',(req,res)=>{
     res.send("put requested")
- }) */
+ }) */  
