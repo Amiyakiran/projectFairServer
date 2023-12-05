@@ -37,5 +37,36 @@ mongodb : used to store large amount of data
                  - db.users.find({$or:[{uname:'jacob'},{uname:'sicily'}]})
                  - db.users.find({uname:{$exists:true}})
                  - db.users.find({$expr:{$gt:["$debt","$balance"]}}) -to compare within the document - use expr
-   
+                 - $gt /$gte/$lt/$lte /$and /$or /$eq/$ne/$in/$nin/$exists/$set/$push/$pull
+
+   - db.users.updateOne({uname:'sicily'},{$inc:{age:17}})
+   - db.users.updateOne({uname:'kyle'},{$push:{hobbies:"swimming"}})
+   - db.users.updateOne({uname:'sicily'},{$inc:{age:-3}})
+   - db.users.deleteOne({uname:'neel'})
+   - db.users.deleteMany({uname:{$exists:true}})
+   - db.projects.insertMany([{title:"Media Player",language:'React',userId: ObjectId("656d2f8dada35578655699f1")},{title:'EMS Portal',languages:'Angular',userId:ObjectId("656d2f8dada35578655699f1")}])
+   - db.projects.find({userId:ObjectId("656d2745c7cd181eb5e4c9f2")})- to get all project of a particular user.
+   -   Aggregation operations process multiple documents and return computed results. You can use aggregation operations to:
+
+        - Group values from multiple documents together.
+
+        - Perform operations on the grouped data to return a single result.
+
+        - Analyze data changes over time.
+
+        - syntax
+        ---------
+        {
+            $lookup:
+              {
+                from: <collection to join>,
+                localField: <field from the input documents>,
+                foreignField: <field from the documents of the "from" collection>,
+                as: <output array field>
+              }
+          }
+
+          -db.users.aggregate({$lookup:{from:'projects',localField:'_id',foreignField:'userId',as:"userProjects"}})
+
+
 
