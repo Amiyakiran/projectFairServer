@@ -69,4 +69,29 @@ mongodb : used to store large amount of data
           -db.users.aggregate({$lookup:{from:'projects',localField:'_id',foreignField:'userId',as:"userProjects"}})
 
 
+//mongodb atlas
+---------------
+- create an account in mongodb atlas.
+- create a new project.
 
+
+
+mongoose
+-------
+it is a node.js library to connect with mongodb
+npm install mangoose
+create a new folder for defining db connection using mangoose.
+  - import mongoose
+  - get connection string from process.env
+  - connect mongodb with server using mongoose.
+  - import connection.js in index.js
+-create scheme - model
+  Each schema maps to a MongoDB collection and defines the shape of the documents within that collection.
+  - create scheme /model
+     - install validator for email.
+        npm install validator
+     - create the model
+     - create the schema
+     - export the model
+     - import the model inside controller.
+ - update the controller file logic

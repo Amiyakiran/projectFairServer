@@ -10,6 +10,9 @@ const cors = require('cors')
 //import router
 const router = require('./Routes/router')
 
+//import mongoose
+require('./DB/connections')
+
 //create expressServer -Creates an Express application. The express() function is a top-level function exported by the express module.
 
 const pfServer = express()
