@@ -41,3 +41,5 @@ exports.register = async (req, res) => {
     }
 
 } 
+
+//logic to resolve login

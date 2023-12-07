@@ -43,3 +43,8 @@ const users = mongoose.model("users",userSchema)
 
 //export model
 module.exports = users
+
+
+
+
+
