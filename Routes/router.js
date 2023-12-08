@@ -12,5 +12,8 @@ const router = new express.Router()
 //register api
 router.post('/user/register',userController.register)
 
+//login api
+router.post('/user/login',userController.login)
+
 //since index.js is the only file is running the router need to be connected to index.js
 module.exports = router

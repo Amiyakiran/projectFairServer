@@ -1,5 +1,7 @@
 //import model
 const users = require('../Models/userSchema')
+//import json web token
+const jwt = require('jsonwebtoken')
 
 //logic to resolve register
 exports.register = async (req, res) => {
@@ -36,10 +38,35 @@ exports.register = async (req, res) => {
 
         }
     }catch(err){
-        //always  set 401 in the catch block
+        //always  set 401 in the catch block-- error is prent in the try block
        res.status(401).json(`Register API Failed, ERROR : ${err}`)
     }
 
 } 
 
 //logic to resolve login
+exports.login = async(req,res)=>{
+    console.log('inside login function');
+
+    const {email,password}= req.body
+    try{
+        const existingUser = await users.findOne({email,password})
+        console.log(existingUser);
+        if(existingUser){
+            //eligible to login
+            //sign is the method to generate token , payload is the first argument indicate which data you need to store in the token
+            const token = jwt.sign({userId:existingUser._id},"supersecretkey12345")
+            res.status(200).json({
+                existingUser,//if a existingUser exists the entire document is returned.
+                token
+            }) 
+
+        }else{
+            res.status(404).json(`Incorrect Email/Password`) 
+        }
+    }catch(err){
+       //always  set 401 in the catch block - error is prent in the try block
+       res.status(401).json(`login API Failed, ERROR : ${err}`) 
+    }
+
+}

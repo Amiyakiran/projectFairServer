@@ -95,3 +95,8 @@ create a new folder for defining db connection using mangoose.
      - export the model
      - import the model inside controller.
  - update the controller file logic
+
+
+ - include json web token
+     npm i jsonwebtoken
+     
