@@ -9,6 +9,7 @@ const cors = require('cors')
 
 //import router
 const router = require('./Routes/router')
+const appMiddleware = require('./middleware/appMiddleware')
 
 //import mongoose
 require('./DB/connections')
@@ -18,8 +19,11 @@ require('./DB/connections')
 const pfServer = express()
 //cors is used by server
 pfServer.use(cors())
-//parsing json -Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option. - convert into javaScript understanding object
+//parsing json -Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option.(CONTENT-TYPE - APLLICATION/JSON) - convert into javaScript understanding object
 pfServer.use(express.json())
+
+//middleware appmiddleware - only me
+pfServer.use(appMiddleware)
 
 //use router in server
 pfServer.use(router)

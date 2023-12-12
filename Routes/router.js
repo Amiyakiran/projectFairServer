@@ -4,6 +4,7 @@
 const express = require('express')
 //import controller
 const userController = require('../controllers/userController')
+const projectController = require('../controllers/projectController')
 
 //2) create router object of express to define path
 const router = new express.Router()
@@ -14,6 +15,9 @@ router.post('/user/register',userController.register)
 
 //login api
 router.post('/user/login',userController.login)
+
+//addproject
+router.post('/project/add',projectController.addProjects)
 
 //since index.js is the only file is running the router need to be connected to index.js
 module.exports = router
