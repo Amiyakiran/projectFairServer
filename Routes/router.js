@@ -5,7 +5,8 @@ const express = require('express')
 //import controller
 const userController = require('../controllers/userController')
 const projectController = require('../controllers/projectController')
-
+const jwtMiddleware = require('../middleware/jwtMiddleware')
+const multerConfig = require('../middleware/multerMiddleware')
 //2) create router object of express to define path
 const router = new express.Router()
 
@@ -17,7 +18,8 @@ router.post('/user/register',userController.register)
 router.post('/user/login',userController.login)
 
 //addproject
-router.post('/project/add',projectController.addProjects)
+//single('which field the file is stored')- only one file is uploaded
+router.post('/project/add',jwtMiddleware,multerConfig.single('projectImage'),projectController.addProjects)
 
 //since index.js is the only file is running the router need to be connected to index.js
 module.exports = router

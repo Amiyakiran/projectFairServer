@@ -23,7 +23,7 @@ pfServer.use(cors())
 pfServer.use(express.json())
 
 //middleware appmiddleware - only me
-pfServer.use(appMiddleware)
+/* pfServer.use(appMiddleware) */
 
 //use router in server
 pfServer.use(router)
