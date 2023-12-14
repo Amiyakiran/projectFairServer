@@ -21,5 +21,14 @@ router.post('/user/login',userController.login)
 //single('which field the file is stored')- only one file is uploaded
 router.post('/project/add',jwtMiddleware,multerConfig.single('projectImage'),projectController.addProjects)
 
+//getUserProjects
+router.get('/user/all-project',jwtMiddleware,projectController.allUserProjects)
+
+//allprojects
+router.get('/projects/all',jwtMiddleware,projectController.getAllProjects)
+
+//homeproject
+router.get('/projects/home-project',projectController.gethomeProjects)
+
 //since index.js is the only file is running the router need to be connected to index.js
 module.exports = router
