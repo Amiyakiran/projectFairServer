@@ -28,6 +28,11 @@ pfServer.use(express.json())
 //use router in server
 pfServer.use(router)
 
+//export uploads
+//first arg - how other apllication should use it 
+//second argument - to export that file from server
+pfServer.use('/uploads',express.static('./uploads'))
+
 //customize port- bydefault - 3000
 
 const PORT = 4000 || process.env.PORT
