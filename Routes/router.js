@@ -30,5 +30,8 @@ router.get('/projects/all',jwtMiddleware,projectController.getAllProjects)
 //homeproject
 router.get('/projects/home-project',projectController.gethomeProjects)
 
+//edit project
+router.put('/project/edit/:id',jwtMiddleware,multerConfig.single('projectImage'),projectController.editUserProject)
+
 //since index.js is the only file is running the router need to be connected to index.js
 module.exports = router
