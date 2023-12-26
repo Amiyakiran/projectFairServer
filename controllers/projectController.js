@@ -101,3 +101,20 @@ exports.editUserProject = async(req,res)=>{
 
 
 }
+
+//delete project
+exports.deleteUserProject = async(req,res)=>{
+
+    const {id}=req.params
+
+    try {
+        //deleteOne - can be used by the deleteOne method will return true or false - i need to get thr deleted document 
+         const removeProject = await projects.findByIdAndDelete({_id:id})
+         res.status(200).json(removeProject)
+        
+    } catch (err) {
+
+       res.status(401).json(err)  
+    }
+}
+
