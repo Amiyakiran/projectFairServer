@@ -36,5 +36,9 @@ router.put('/project/edit/:id',jwtMiddleware,multerConfig.single('projectImage')
 //delete project
 router.delete('/project/remove/:id',jwtMiddleware,projectController.deleteUserProject)
 
+//updateUser
+
+router.put('/user/update',jwtMiddleware,multerConfig.single("profile"),userController.editUser)
+
 //since index.js is the only file is running the router need to be connected to index.js
 module.exports = router
