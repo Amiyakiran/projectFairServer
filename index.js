@@ -12,15 +12,13 @@ const router = require('./Routes/router')
 const appMiddleware = require('./middleware/appMiddleware')
 
 //import mongoose
-require('./DB/connections')()
+require('./DB/connections')
 
 //create expressServer -Creates an Express application. The express() function is a top-level function exported by the express module.
 
 const pfServer = express()
 //cors is used by server
-pfServer.use(cors({
-    origin:'https://project-fair-gules.vercel.app'
-}))
+pfServer.use(cors())
 //parsing json -Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option.(CONTENT-TYPE - APLLICATION/JSON) - convert into javaScript understanding object
 pfServer.use(express.json())
 
