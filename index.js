@@ -12,7 +12,7 @@ const router = require('./Routes/router')
 const appMiddleware = require('./middleware/appMiddleware')
 
 //import mongoose
-require('./DB/connections')
+require('./DB/connections')()
 
 //create expressServer -Creates an Express application. The express() function is a top-level function exported by the express module.
 
