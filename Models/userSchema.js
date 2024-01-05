@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 
 //cs
-require('../DB/connections')
+/* require('../DB/connections') */
 
 //create schema to define the structure of collection documents
 const userSchema = new mongoose.Schema({

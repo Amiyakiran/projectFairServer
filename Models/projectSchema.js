@@ -1,7 +1,7 @@
 //import mongoose
 const mongoose = require('mongoose')
 //cs
-require('../DB/connections')
+/* require('../DB/connections') */
 
 //create schema to define the structure of collection documents
 const projectSchema = new mongoose.Schema({
