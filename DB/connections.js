@@ -8,11 +8,11 @@ const connectionString = process.env.DATABASE
 /* console.log(process.env.DATABASE); */
 
 //establish connection
-if(!connectionString){
+if(!process.env.DATABASE){
   console.log('no connection string');
 }
 else{
-  mongoose.connect(connectionString).then(()=>{
+  mongoose.connect(process.env.DATABASE).then(()=>{
     console.log(connectionString);
     
      console.log('Mongodb Atlas successfully connected with pfServer'); 
