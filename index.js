@@ -3,7 +3,23 @@
 require('dotenv').config();
 
 //import mongoose
-require('./DB/connections')
+/* require('./DB/connections') */
+//import mongoose
+const mongoose = require('mongoose')
+// Load environment variables
+/* require('dotenv').config(); */
+
+//get the connection string of mongodb
+const connectionString = process.env.DATABASE
+
+
+//establish connection
+mongoose.connect(connectionString).then(()=>{
+  console.log(process.env);
+   console.log('Mongodb Atlas successfully connected with pfServer'); 
+}).catch((err)=>{
+    console.log('Mongodb connection failed due to'+err); 
+})
 
 //import express
 const express = require('express')
