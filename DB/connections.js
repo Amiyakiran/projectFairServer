@@ -5,15 +5,22 @@ require('dotenv').config();
 
 //get the connection string of mongodb
 const connectionString = process.env.DATABASE
-
+/* console.log(process.env.DATABASE); */
 
 //establish connection
-mongoose.connect(connectionString).then(()=>{
-  console.log(process.env);
-   console.log('Mongodb Atlas successfully connected with pfServer'); 
-}).catch((err)=>{
-    console.log('Mongodb connection failed due to'+err); 
-})
+if(!connectionString){
+  console.log('no connection string');
+}
+else{
+  mongoose.connect(connectionString).then(()=>{
+    console.log(connectionString);
+    
+     console.log('Mongodb Atlas successfully connected with pfServer'); 
+  }).catch((err)=>{
+      console.log('Mongodb connection failed due to'+err); 
+  })
+  
+}
 
 /* const options = {
   serverSelectionTimeoutMS: 15000, // Set a higher value than the default 30000 (30 seconds)

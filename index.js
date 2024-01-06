@@ -2,24 +2,6 @@
 //Environment variables provide information about the environment in which the process is running. 
 require('dotenv').config();
 
-//import mongoose
-/* require('./DB/connections') */
-//import mongoose
-const mongoose = require('mongoose')
-// Load environment variables
-/* require('dotenv').config(); */
-
-//get the connection string of mongodb
-const connectionString = process.env.DATABASE
-
-
-//establish connection
-mongoose.connect(connectionString).then(()=>{
-  console.log(process.env);
-   console.log('Mongodb Atlas successfully connected with pfServer'); 
-}).catch((err)=>{
-    console.log('Mongodb connection failed due to'+err); 
-})
 
 //import express
 const express = require('express')
@@ -31,6 +13,8 @@ const cors = require('cors')
 const router = require('./Routes/router')
 /* const appMiddleware = require('./middleware/appMiddleware') */
 
+//import mongoose
+require('./DB/connections')
 
 
 //create expressServer -Creates an Express application. The express() function is a top-level function exported by the express module.
