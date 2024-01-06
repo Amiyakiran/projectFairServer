@@ -1,5 +1,8 @@
 //import mongoose
 const mongoose = require('mongoose')
+// Load environment variables
+require('dotenv').config();
+
 //get the connection string of mongodb
 const connectionString = process.env.DATABASE
 

@@ -13,7 +13,7 @@ const cors = require('cors')
 
 //import router
 const router = require('./Routes/router')
-const appMiddleware = require('./middleware/appMiddleware')
+/* const appMiddleware = require('./middleware/appMiddleware') */
 
 
 
