@@ -8,19 +8,13 @@ const connectionString = process.env.DATABASE
 /* console.log(process.env.DATABASE); */
 
 //establish connection
-if(!process.env.DATABASE){
-  console.log('no connection string');
-}
-else{
-  mongoose.connect(process.env.DATABASE).then(()=>{
-    console.log(connectionString);
-    
-     console.log('Mongodb Atlas successfully connected with pfServer'); 
-  }).catch((err)=>{
-      console.log('Mongodb connection failed due to'+err); 
-  })
+mongoose.connect(connectionString).then(()=>{
+  console.log(connectionString);
   
-}
+   console.log('Mongodb Atlas successfully connected with pfServer'); 
+}).catch((err)=>{
+    console.log('Mongodb connection failed due to'+err); 
+})
 
 /* const options = {
   serverSelectionTimeoutMS: 15000, // Set a higher value than the default 30000 (30 seconds)
